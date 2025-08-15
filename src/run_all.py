@@ -52,8 +52,8 @@ def main():
     try:
         from tensorflow import keras
         import joblib, pandas as pd
-        from common_paths import TEST_CSV, SCALER_PATH, LSTM_MODEL
-        from models.train_lstm import WINDOW, make_xy
+        from src.common_paths import TEST_CSV, SCALER_PATH, LSTM_MODEL
+        from src.models.train_lstm import WINDOW, make_xy
         test_df = pd.read_csv(TEST_CSV, parse_dates=["timestamp"])
         scaler = joblib.load(SCALER_PATH)
         model = keras.models.load_model(LSTM_MODEL, compile=False)
