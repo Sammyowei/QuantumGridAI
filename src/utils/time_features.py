@@ -1,40 +1,24 @@
 """
-utils/io.py
------------
-Helper functions to load/save CSVs, and to normalize column names.
+utils/time_features.py
+----------------------
+Adds time-based features (hour, dayofweek, month, etc.) and lag features.
 """
 
-from __future__ import annotations
 import pandas as pd
-from pathlib import Path
-from typing import Dict, List, Optional
+import numpy as np
 
-def read_csv_flexible(path: Path,
-                      rename_map: Optional[Dict[str, str]] = None,
-                      required: Optional[List[str]] = None) -> pd.DataFrame:
-    """
-    Reads CSV and tries to standardize common column name variations.
-    - rename_map: user-provided mapping to rename columns
-    - required: columns that must exist after rename
-    """
-    df = pd.read_csv(path)
-    # Common normalizations
-    auto_map = {
-        "datetime": "timestamp",
-        "date": "timestamp",
-        "time": "timestamp",
-        "load_mw": "Load",
-        "loadmw": "Load",
-        "load": "Load",
-        "demand": "Load"
-    }
-    df.rename(columns={**auto_map, **(rename_map or {})}, inplace=True)
-    if required:
-        missing = [c for c in required if c not in df.columns]
-        if missing:
-            raise ValueError(f"Missing required columns after rename: {missing}")
+def add_time_features(df: pd.DataFrame, ts_col: str = "timestamp") -> pd.DataFrame:
+    df = df.copy()
+    df[ts_col] = pd.to_datetime(df[ts_col])
+    df["hour"] = df[ts_col].dt.hour
+    df["dayofweek"] = df[ts_col].dt.dayofweek
+    df["month"] = df[ts_col].dt.month
+    df["is_weekend"] = (df["dayofweek"] >= 5).astype(int)
     return df
 
-def write_csv(df: pd.DataFrame, path: Path) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    df.to_csv(path, index=False)
+def make_lag_features(df: pd.DataFrame, y_col: str = "Load", lags=(1, 24, 168)) -> pd.DataFrame:
+    df = df.copy()
+    for L in lags:
+        df[f"{y_col}_lag{L}"] = df[y_col].shift(L)
+    df.dropna(inplace=True)
+    return df
