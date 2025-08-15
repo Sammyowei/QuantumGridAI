@@ -1,0 +1,8 @@
+numpy
+pandas
+scikit-learn
+matplotlib
+tensorflow>=2.15
+joblib
+# If you want ARIMA later:
+# pmdarima
