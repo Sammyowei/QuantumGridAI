@@ -11,9 +11,9 @@ Runs classical simulation for each scenario.
 import numpy as np
 import pandas as pd
 from pathlib import Path
-from common_paths import FORECASTS_DIR, TABLES_DIR
-from optimization.simulate_classical import run_simulation, DEFAULT_FLEET
-from utils.io import write_csv
+from src.common_paths import FORECASTS_DIR, TABLES_DIR
+from src.optimization.simulate_classical import run_simulation, DEFAULT_FLEET
+from src.utils.io import write_csv
 
 def make_peak(df: pd.DataFrame) -> pd.DataFrame:
     out = df.copy()

@@ -11,8 +11,8 @@ import numpy as np
 import pandas as pd
 import joblib
 from tensorflow import keras
-from common_paths import TRAIN_CSV, TEST_CSV, SCALER_PATH, LSTM_MODEL, MODELS_DIR, FIGURES_DIR
-from models.build_lstm import build_lstm_model
+from src.common_paths import TRAIN_CSV, TEST_CSV, SCALER_PATH, LSTM_MODEL, MODELS_DIR, FIGURES_DIR
+from src.models.build_lstm import build_lstm_model
 import matplotlib.pyplot as plt
 
 WINDOW = 168  # 1 week history -> predict next hour

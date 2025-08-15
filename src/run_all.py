@@ -16,17 +16,17 @@ If you don't have a raw dataset yet, run data/generate_synthetic.py first.
 import sys
 from pathlib import Path
 
-from common_paths import FORECASTS_DIR, TABLES_DIR, FIGURES_DIR
-from data.process_data import main as process_data_main
-from models.train_baselines import main as train_baselines_main
-from models.train_lstm import main as train_lstm_main
-from models.evaluate_models import main as eval_models_main
-from optimization.simulate_classical import run_simulation
-from optimization.scenarios import run_all as scenarios_main
-from optimization.renewables import run_with_renewables
-from optimization.quantum_qubo_simulator import run_qubo_sim
-from analysis.seasonal_analysis import main as seasonal_main
-from analysis.report_export import main as report_main
+from src.common_paths import FORECASTS_DIR, TABLES_DIR, FIGURES_DIR
+from src.data.process_data import main as process_data_main
+from src.models.train_baselines import main as train_baselines_main
+from src.models.train_lstm import main as train_lstm_main
+from src.models.evaluate_models import main as eval_models_main
+from src.optimization.simulate_classical import run_simulation
+from src.optimization.scenarios import run_all as scenarios_main
+from src.optimization.renewables import run_with_renewables
+from src.optimization.quantum_qubo_simulator import run_qubo_sim
+from src.analysis.seasonal_analysis import main as seasonal_main
+from src.analysis.report_export import main as report_main
 
 def banner(msg): print(f"\n>>\n{msg}\n")
 

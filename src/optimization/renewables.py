@@ -10,10 +10,10 @@ Then runs classical dispatch with renewables included.
 import numpy as np
 import pandas as pd
 from pathlib import Path
-from common_paths import FORECASTS_DIR, TABLES_DIR, FIGURES_DIR
-from optimization.simulate_classical import greedy_dispatch
-from utils.metrics import mae, rmse, mape
-from utils.plotting import plot_dispatch
+from src.common_paths import FORECASTS_DIR, TABLES_DIR, FIGURES_DIR
+from src.optimization.simulate_classical import greedy_dispatch
+from src.utils.metrics import mae, rmse, mape
+from src.utils.plotting import plot_dispatch
 
 def solar_profile(hours: int, peak_mw: float = 40.0) -> np.ndarray:
     # Make a simple daily solar curve with peak at noon

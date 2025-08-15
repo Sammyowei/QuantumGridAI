@@ -12,9 +12,9 @@ import pandas as pd
 import joblib
 from datetime import timedelta
 from tensorflow import keras
-from common_paths import TRAIN_CSV, TEST_CSV, SCALER_PATH, LSTM_MODEL, FORECASTS_DIR
+from src.common_paths import TRAIN_CSV, TEST_CSV, SCALER_PATH, LSTM_MODEL, FORECASTS_DIR
 
-from models.train_lstm import WINDOW
+from src.models.train_lstm import WINDOW
 
 def rolling_predict(last_series_scaled: np.ndarray, model, steps: int) -> np.ndarray:
     """

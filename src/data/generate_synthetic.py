@@ -12,8 +12,8 @@ Saves to data/raw/load_data.csv with columns: timestamp, Load
 import numpy as np
 import pandas as pd
 from datetime import datetime
-from common_paths import RAW_LOAD
-from utils.io import write_csv
+from src.common_paths import RAW_LOAD
+from src.utils.io import write_csv
 
 YEARS = 10  # set to 20 if you want larger dataset quickly
 

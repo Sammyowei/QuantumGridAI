@@ -6,7 +6,7 @@ Collects key tables/figures into a 'reports' folder for quick thesis insertion.
 """
 
 import shutil
-from common_paths import TABLES_DIR, FIGURES_DIR, REPORTS_DIR
+from src.common_paths import TABLES_DIR, FIGURES_DIR, REPORTS_DIR
 
 def main():
     # Copy a few headline artifacts (customize as you like)

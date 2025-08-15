@@ -10,8 +10,8 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from pathlib import Path
-from common_paths import TEST_CSV, FORECASTS_DIR, TABLES_DIR, FIGURES_DIR
-from utils.metrics import mae, rmse, mape
+from src.common_paths import TEST_CSV, FORECASTS_DIR, TABLES_DIR, FIGURES_DIR
+from src.utils.metrics import mae, rmse, mape
 
 def main():
     test_df = pd.read_csv(TEST_CSV, parse_dates=["timestamp"])

@@ -11,9 +11,9 @@ import numpy as np
 import pandas as pd
 import joblib
 from sklearn.linear_model import LinearRegression
-from common_paths import TRAIN_CSV, TEST_CSV, SCALER_PATH, FORECASTS_DIR
-from utils.time_features import make_lag_features
-from utils.io import write_csv
+from src.common_paths import TRAIN_CSV, TEST_CSV, SCALER_PATH, FORECASTS_DIR
+from src.utils.time_features import make_lag_features
+from src.utils.io import write_csv
 
 def naive_last_forecast(test_series: np.ndarray) -> np.ndarray:
     # Predict each point as previous point; first prediction equals first value

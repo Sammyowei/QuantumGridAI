@@ -13,9 +13,9 @@ while being production-ready on a normal PC.
 import numpy as np
 import pandas as pd
 from pathlib import Path
-from common_paths import FORECASTS_DIR, TABLES_DIR, FIGURES_DIR
-from utils.metrics import mae, rmse, mape
-from utils.plotting import plot_dispatch
+from src.common_paths import FORECASTS_DIR, TABLES_DIR, FIGURES_DIR
+from src.utils.metrics import mae, rmse, mape
+from src.utils.plotting import plot_dispatch
 
 # Config
 UNIT_MW = 1      # each binary unit = 1 MW (increase for speed, decrease for accuracy)

@@ -11,8 +11,8 @@ data/process_data.py
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
-from common_paths import RAW_LOAD, TRAIN_CSV, TEST_CSV, SCALER_PATH
-from utils.io import read_csv_flexible, write_csv
+from src.common_paths import RAW_LOAD, TRAIN_CSV, TEST_CSV, SCALER_PATH
+from src.utils.io import read_csv_flexible, write_csv
 
 TEST_DAYS = 30  # last 30 days = test
 
