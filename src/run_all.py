@@ -43,7 +43,7 @@ def main():
     banner("🚀 PHASE 1: Processing data, training baselines + LSTM, evaluating models")
     if not safe_call(process_data_main): sys.exit(1)
     if not safe_call(train_baselines_main): sys.exit(1)
-    if not safe_call(train_lstm_main): sys.exit(1)
+    # if not safe_call(train_lstm_main): sys.exit(1)
     if not safe_call(eval_models_main): sys.exit(1)
 
     # Save LSTM test forecast to standard name (for downstream)

@@ -19,7 +19,7 @@ def load_lstm_forecast():
     scaler = joblib.load(SCALER_PATH)
     model = keras.models.load_model(LSTM_MODEL, compile=False)
 
-    from models.train_lstm import WINDOW, make_xy
+    from src.models.train_lstm import WINDOW, make_xy
     scaled = scaler.transform(test_df[["Load"]].values)
     X_test, y_test = make_xy(scaled.flatten(), WINDOW)
     yhat_scaled = model.predict(X_test, verbose=0).flatten()
